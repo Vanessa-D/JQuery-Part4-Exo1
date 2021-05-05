@@ -1,11 +1,15 @@
-// Afficher une boîte de dialogue
+// Déclaration et initialisation d'une variable i --> compteur
+let i = 0;
 
-// $ --> JQuery() permet de transformer l'élément en objet JQuery
-
-
-$(document).ready(function(){ // Chargement du HTML PUIS exécution du script
-    $('#clique').click(function(){
-        alert('I feel it coming !');
+$(function(){ 
+    // Au clic du bouton...
+    $('#displayCounter').click(function(){
+        // On incrémente i
+        i++; 
+        // On créé un élément input à l'intérieur de la div divCounter --> méthode html()
+        $('#divCounter').html('<input id="inputCounter" type="text" class="form-control">');
+        // On affiche dans l'input la valeur de i incrémentée à chaque clic --> méthode val(paramètre)
+        $('#inputCounter').val(i);
     });
 });
 
@@ -13,9 +17,11 @@ $(document).ready(function(){ // Chargement du HTML PUIS exécution du script
 
 // En JS vanilla, on aurait :
 /*
-let button = document.getElementById('clique');
- 
-button.addEventListener('click', () => {
-    alert('I feel it coming !');
+let i = 0; 
+function displayCounter(){
+    i++;
+    alert(`Compteur à ${i}`);
+    document.getElementById("p").innerHTML = i;
+}
 });
 */
